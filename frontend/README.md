@@ -46,7 +46,7 @@
 ### Project Structure
 
 ```
-  src
+   src
     ├───assets
     ├───common
     ├───components
