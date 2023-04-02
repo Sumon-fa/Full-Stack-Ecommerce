@@ -1,0 +1,57 @@
+.create-product {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 500px;
+    padding: 20px;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 2em;
+
+    label {
+      font-size: 16px;
+      margin-bottom: 5px;
+    }
+
+    input,
+    textarea,
+    select {
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      margin: auto;
+      transition: background-color 0.2s ease-in-out;
+
+      &:hover {
+        background-color: #005fa3;
+      }
+    }
+  }
+}
