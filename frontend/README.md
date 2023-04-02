@@ -18,7 +18,7 @@
 
 ### Live Demo
 
-- (https://fs133-fullstack.netlify.app/products/)
+- (https://fs133-fullstack.netlify.app)
 
 ### Current Features
 
