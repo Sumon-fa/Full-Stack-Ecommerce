@@ -19,7 +19,3 @@
 ### Live Demo
 
 - (https://fs133-fullstack.netlify.app)
-
-### Backend Endpoint
-
-- (https://shopping-backend.azurewebsites.net/api/v1)

@@ -12,7 +12,7 @@ You can access the list of all users by using the `/users` endpoint
 
 ### Request:
 
-    [GET] https://demo.api/api/v1/users
+    [GET] https://shopping-backend.azurewebsites.net/api/v1/users
 
 ```
 ### Response:
@@ -40,7 +40,7 @@ You can get a single user by adding the `id` as a parameter: `/users/{id}`
 
 ### Request:
 
-    [GET] https://demo.api/api/v1/users/1
+    [GET] https://shopping-backend.azurewebsites.net/api/v1/users/1
 
 ### Response:
 
@@ -65,7 +65,7 @@ You can get a user profile by the following endpoint
 
 ### Request:
 
-    [GET] https://demo.api/api/v1/users/profile
+    [GET] https://shopping-backend.azurewebsites.net/api/v1/users/profile
 
 ### Response:
 

@@ -9,7 +9,7 @@ This Api endpoint is used to create and read the order histories.
 - [Get order by ID](#getOrderByID)
 - [Create order](#createOrder)
 
-## Get all order histories]{#getAllOrders}
+## Get all order histories {#getAllOrders}
 
 ```
 This api gives information of all order histories information.
@@ -19,10 +19,10 @@ The data can be limited and pagination is applied by passing the optional parame
 ### Request:
 
 ```
-[GET] https://demo.api/api/v1/orders
+[GET] https://shopping-backend.azurewebsites.net/api/v1/orders
 
 Request with pagination pass offset and limit as shown below
-[GET] https://demo.api/api/v1/orders?offset=0&limit=10
+[GET] https://shopping-backend.azurewebsites.net/api/v1/orders?offset=0&limit=10
 ```
 
 ### Response
@@ -48,7 +48,7 @@ Using this api you will be able to get all order histories information of specif
 ### Request:
 
 ```
-[GET] https://demo.api/api/v1/myorders
+[GET] https://shopping-backend.azurewebsites.net/api/v1/myorders
 
 
 ```
@@ -78,7 +78,7 @@ Using this api you will be able to get order history information of specific Ord
 ### Request:
 
 ```
-[GET] https://demo.api/api/v1/order/ciciuwhoi-899292
+[GET] https://shopping-backend.azurewebsites.net/api/v1/order/ciciuwhoi-899292
 ```
 
 ### Response
@@ -118,7 +118,7 @@ This allows to create a new order.
 ### Request
 
 ```
-[Post] https://demo.api/api/v1/orders
+[Post] https://shopping-backend.azurewebsites.net/api/v1/orders
 
    {
        "cartItems":[

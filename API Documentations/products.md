@@ -14,7 +14,7 @@ You can access the list of all users by using the `/products` endpoint
 
 ### Request:
 
-    [GET] https://demo.api/api/v1/products
+    [GET] https://shopping-backend.azurewebsites.net/api/v1/products
 
 ### Response:
 
@@ -38,7 +38,7 @@ You can get a single user by adding the `id` as a parameter: `/product/{id}`
 
 ### Request:
 
-    ​[GET] https://demo.api/api/v1/products/1
+    ​[GET] https://shopping-backend.azurewebsites.net/api/v1/products/1
 
 ### Response:
 
@@ -61,7 +61,7 @@ You can create a new user by sending an object like the following to `/products`
 
 ​// Send request in this api with product table
 
-    [POST] https://demo.api/api/v1/products
+    [POST] https://shopping-backend.azurewebsites.net/api/v1/products
 
     # Body
     {
@@ -97,7 +97,7 @@ You can update a product exists by sending an object like the following and addi
 
 ### Request:
 
-    ​ [PUT] https://demo.api/api/v1/product/1
+    ​ [PUT] https://shopping-backend.azurewebsites.net/api/v1/product/1
 
     {
       ...,
@@ -122,7 +122,7 @@ You can delete a user exists by adding the `id` as a parameter: `/products/{id}`
 
 ### Request:
 
-    ​  [DELETE] https://demo.api/api/v1/products/1
+    ​  [DELETE] https://shopping-backend.azurewebsites.net/api/v1/products/1
 
 ### Response:
 
