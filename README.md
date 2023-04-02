@@ -22,4 +22,4 @@
 
 ### Backend Endpoint
 
--(https://shopping-backend.azurewebsites.net/api/v1)
+- (https://shopping-backend.azurewebsites.net/api/v1)
