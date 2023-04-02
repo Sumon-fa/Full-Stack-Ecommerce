@@ -11,4 +11,45 @@ Following is the API Category:​
 - [Categories](./API%20Documentations/categories.md)
 - [Orders](./API%20Documentations/orders.md)
 
+### Project Structure Backend
+
+```
+
+       ├───bin
+       │   ├───Debug
+       │   │   └───net6.0
+       │   │       └───publish
+       │   ├───Publish
+       │   └───Realease
+       │       └───net6.0
+       ├───Common
+       ├───Controllers
+       ├───Db
+       ├───DTOs
+       ├───Middlware
+       ├───Migrations
+       ├───Models
+       │   └───Order
+       ├───obj
+       │   ├───Debug
+       │   │   └───net6.0
+       │   │       ├───ref
+       │   │       ├───refint
+       │   │       └───staticwebassets
+       │   └───Realease
+       │       └───net6.0
+       │           ├───ref
+       │           ├───refint
+       │           └───staticwebassets
+       ├───Properties
+       └───Services
+           ├───Auth
+           ├───Category
+           ├───File
+           ├───Order
+           ├───Product
+           └───Token
+
+```
+
 [Fullstack Project](./README.md)

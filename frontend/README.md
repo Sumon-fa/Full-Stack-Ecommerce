@@ -46,14 +46,16 @@
 ### Project Structure
 
 ```
-   src
+  src
     ├───assets
+    ├───common
     ├───components
     │   ├───Cart
     │   ├───Drawer
     │   ├───Footer
     │   ├───Header
     │   ├───Home
+    │   ├───Routes
     │   ├───Search
     │   ├───types
     │   │   ├───auth
@@ -65,6 +67,7 @@
     ├───css
     ├───hooks
     ├───pages
+    │   └───admin
     ├───redux
     │   ├───actions
     │   └───slices
@@ -72,6 +75,7 @@
         ├───features
         ├───sections
         │   ├───cart
+        │   ├───dashboard
         │   ├───home
         │   └───product
         └───shared
@@ -89,6 +93,7 @@
 - Restructure the project
 - Order page implementation
 - Role Based Authorization
+- Adding Proper Error Validation
 - Unit testing (jest)
 
 ## Instruction to start the project
