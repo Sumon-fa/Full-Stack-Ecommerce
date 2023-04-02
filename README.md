@@ -4,8 +4,8 @@
 ![SASS](https://img.shields.io/badge/SASS-v.4-hotpink)
 ![React](https://img.shields.io/badge/React-v.18-blue)
 ![Redux toolkit](https://img.shields.io/badge/Redux-v.1.9-brown)
-![.NET Core](https://img.shields.io/badge/.NET%20Core-V.6-yellowgreen)
-![EF Core](https://img.shields.io/badge/EF%20Core-V.6-blue)
+![.NET Core](https://img.shields.io/badge/.NET%20Core-v.6-yellowgreen)
+![EF Core](https://img.shields.io/badge/EF%20Core-v.6-blue)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-v.14-drakblue)
 
 - Frontend: SASS, TypeScript, React, Redux Toolkit
