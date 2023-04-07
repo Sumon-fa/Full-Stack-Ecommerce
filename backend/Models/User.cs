@@ -10,4 +10,5 @@ public class User : IdentityUser<int>
  public string LastName { get; set; } = null!;
  public string PictureUrl { get; set; } = null!;
  public string PublicId { get; set; } = null!;
+
 }

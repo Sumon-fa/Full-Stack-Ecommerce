@@ -19,7 +19,7 @@ public class ProductService : CrudService<Product, ProductDTO>
  {
   _imageService = imageService;
  }
- public override async Task<ICollection<Product>> GetAllAsync(FilterDTO filter)
+ /*public override async Task<ICollection<Product>> GetAllAsync(FilterDTO filter)
  {
 
   var query = _dbContext.Products.AsQueryable();
@@ -45,7 +45,7 @@ public class ProductService : CrudService<Product, ProductDTO>
   }
   return await query.AsNoTracking()
       .ToListAsync();
- }
+ }*/
 
 }
 /* return await query.AsNoTracking().Include(p => p.Category)

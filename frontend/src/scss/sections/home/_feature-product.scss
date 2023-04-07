@@ -3,6 +3,14 @@
 
 .feature {
   margin-bottom: spacing.$section;
+  & .bottom-header__search {
+    position: fixed;
+    text-align: right;
+    right: 8em;
+    cursor: pointer;
+    z-index: 200;
+    top: 48px;
+  }
   h1 {
     text-align: center;
     margin-bottom: 2em;

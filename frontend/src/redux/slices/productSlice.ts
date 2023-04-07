@@ -1,5 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { Product } from '../../components/types/products/product';
+import {
+  GetAllProducts,
+  Product,
+} from '../../components/types/products/product';
 import { ProductState } from '../../components/types/products/productState';
 import {
   createProduct,
@@ -9,6 +12,7 @@ import {
 
 const initialState: ProductState = {
   products: [],
+  totalProducts: 0,
   product: {
     name: '',
     price: 0,
@@ -35,11 +39,12 @@ const productSlice = createSlice({
   extraReducers: (build) => {
     build.addCase(
       getAllProducts.fulfilled,
-      (state, action: PayloadAction<Product[]>) => {
+      (state, action: PayloadAction<GetAllProducts>) => {
         if (!action.payload) {
           return state;
         }
-        state.products = action.payload;
+        state.products = action.payload.result;
+        state.totalProducts = action.payload.itemLength;
         state.isLoading = false;
         state.isError = null;
         return state;
@@ -84,11 +89,12 @@ const productSlice = createSlice({
     });
     build.addCase(
       getProductsByCategoryId.fulfilled,
-      (state, action: PayloadAction<Product[]>) => {
+      (state, action: PayloadAction<GetAllProducts>) => {
         if (!action.payload) {
           return state;
         }
-        state.products = action.payload;
+        state.products = action.payload.result;
+        state.totalProducts = action.payload.itemLength;
         state.isLoading = false;
         state.isError = null;
         return state;

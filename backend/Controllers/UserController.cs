@@ -30,7 +30,7 @@ public class UserController : ApiControllerBase
 
 
 
-  return Ok(UserSignUpResponseDTO.FromUser(user));
+  return Ok(user);
  }
 
 
@@ -51,8 +51,21 @@ public class UserController : ApiControllerBase
  public async Task<IActionResult> GetCurrentUser()
  {
   var user = await _userManager.GetUserAsync(User);
+  var roles = await _userManager.GetRolesAsync(user);
 
-  return Ok(UserSignUpResponseDTO.FromUser(user));
+  var response = new UserProfileResponseDTO
+  {
+   Roles = roles,
+   FirstName = user.FirstName,
+   LastName = user.LastName,
+   UserName = user.Email,
+   Email = user.Email,
+   Id = user.Id,
+   PictureUrl = user.PictureUrl,
+   PublicId = user.PublicId
+  };
+
+  return Ok(response);
  }
 
  [Authorize]

@@ -28,8 +28,7 @@ const CategorizedProducts = () => {
 
   return (
     <>
-      {isLoading && <Loader />}
-      {!isError && !isLoading && <ProductCard products={products} />}
+      <ProductCard products={products} />
     </>
   );
 };

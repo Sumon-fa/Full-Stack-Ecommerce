@@ -35,8 +35,44 @@ namespace backend.Db
    base.OnModelCreating(modelBuilder);
    modelBuilder.HasPostgresEnum<Order.OrderStatus>();
 
+   modelBuilder.Entity<Product>()
+     .Property(s => s.CreatedAt)
+     .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+   modelBuilder.Entity<Product>()
+       .Property(s => s.UpdatedAt)
+       .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+   modelBuilder.Entity<Category>()
+       .Property(s => s.CreatedAt)
+       .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+   modelBuilder.Entity<Category>()
+       .Property(s => s.UpdatedAt)
+       .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+   modelBuilder.Entity<Order>()
+   .Property(s => s.CreatedAt)
+   .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+   modelBuilder.Entity<Order>()
+       .Property(s => s.UpdatedAt)
+       .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+   modelBuilder.Entity<CartItem>()
+.Property(s => s.CreatedAt)
+.HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+   modelBuilder.Entity<CartItem>()
+       .Property(s => s.UpdatedAt)
+       .HasDefaultValueSql("CURRENT_TIMESTAMP");
+
+
    modelBuilder.Entity<Order>()
                .HasIndex(o => o.Customer);
+
+   modelBuilder.Entity<Product>()
+               .HasIndex(p => p.Name);
 
    modelBuilder.Entity<User>()
                .HasIndex(u => u.Email).IsUnique();

@@ -37,7 +37,9 @@ const Profile = () => {
             <h3 className="profile__content__email">
               Email: {currentUser.email}
             </h3>
-            <h3 className="profile__content__role">Role: {currentUser.role}</h3>
+            <h3 className="profile__content__role">
+              Role: {currentUser.roles[0]}
+            </h3>
           </div>
         </div>
       )}

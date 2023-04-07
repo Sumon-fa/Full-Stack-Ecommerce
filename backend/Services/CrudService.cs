@@ -3,6 +3,7 @@ using backend.Models;
 using backend.DTOs;
 using backend.Db;
 using backend.Common;
+using System.Reflection;
 
 namespace backend.Services
 {
@@ -37,7 +38,6 @@ namespace backend.Services
    {
     throw ServiceException.NotFound("item is not found");
    }
-
    return result;
   }
 
@@ -79,25 +79,34 @@ namespace backend.Services
    return true;
   }
 
-  public virtual async Task<ICollection<TModel>> GetAllAsync(FilterDTO filter)
+  public async Task<GetAllResultDTO<TModel>> GetAllAsync(FilterDTO filter)
   {
-   var query = _dbContext.Set<TModel>().AsNoTracking().AsQueryable();
-   if (filter.Sort.Trim().Length > 0)
-   {
-    if (query.GetType().GetProperty(filter.Sort) != null)
-    {
-     query.OrderBy(e => e.GetType().GetProperty(filter.Sort));
+   var query = _dbContext.Set<TModel>().AsQueryable();
 
-    }
-    query.Take(filter.Limit).Skip(filter.Skip);
+
+
+
+   if (!string.IsNullOrWhiteSpace(filter.SearchKeyWord))
+   {
+    query = query.Where(x => EF.Functions.Like(
+        EF.Property<string>(x, "Name"),
+        $"%{filter.SearchKeyWord}%"));
    }
-   var result = await query.ToListAsync();
+   var result = await query.AsNoTracking().Skip((filter.Page - 1) * filter.PageSize).Take(filter.PageSize).ToListAsync();
+
+
+
    if (result is null)
    {
     throw ServiceException.NotFound("item is not found");
    }
 
-   return result;
+   return new GetAllResultDTO<TModel>
+   {
+    Result = result,
+    ItemLength = query.Count()
+
+   };
   }
  }
 }

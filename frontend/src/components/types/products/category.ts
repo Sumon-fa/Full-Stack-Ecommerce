@@ -3,3 +3,8 @@ export interface Category {
   pictureUrl: string;
   id: string;
 }
+
+export interface AllCategory {
+  result: Category[];
+  itemLength: number;
+}

@@ -15,7 +15,7 @@ You can access the list of all categories by using the `/categories` endpoint
 
 ### Request:
 
-    [GET] https://demo.api/api/v1/categories
+    [GET] https://shopping-backend.azurewebsites.net/api/v1/categories
 
 ### Response:
 
@@ -36,7 +36,7 @@ You can get a single category by adding the `id` as a parameter: `/categories/{i
 
 ### Request:
 
-    [GET] https://demo.api/api/v1/categories/1
+    [GET] https://shopping-backend.azurewebsites.net/api/v1/categories/1
 
 ### Response:
 
@@ -54,7 +54,7 @@ You can create a new category by sending an object like the following to `/categ
 
 ### Request:
 
-    [POST] https://demo.api/api/v1/categories
+    [POST] https://shopping-backend.azurewebsites.net/api/v1/categories
     # Body
     {
        "file": "<Binary File>",
@@ -82,7 +82,7 @@ You can update a category exists by sending an object like the following and add
 
 ### Request:
 
-    [PUT] https://demo.api/api/v1/categories/1
+    [PUT] https://shopping-backend.azurewebsites.net/api/v1/categories/1
     # Body
     {
       "name": "Change Name",
@@ -110,7 +110,7 @@ You can delete a category exists by adding the `id` as a parameter: `/categories
 
 ### Request:
 
-    [DELETE] https://demo.api/api/v1/categories/1
+    [DELETE] https://shopping-backend.azurewebsites.net/api/v1/categories/1
 
     # Headers
     {

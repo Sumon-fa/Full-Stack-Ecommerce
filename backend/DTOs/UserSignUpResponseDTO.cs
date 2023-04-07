@@ -1,5 +1,6 @@
 namespace backend.DTOs;
 using backend.Models;
+using Microsoft.AspNetCore.Identity;
 
 public class UserSignUpResponseDTO
 {
@@ -12,9 +13,6 @@ public class UserSignUpResponseDTO
 
  public string PictureUrl { get; set; } = null!;
  public string PublicId { get; set; } = null!;
- public ICollection<string> Roles { get; set; } = null!;
-
-
  public static UserSignUpResponseDTO FromUser(User user)
  {
   return new UserSignUpResponseDTO
@@ -26,6 +24,9 @@ public class UserSignUpResponseDTO
    Email = user.Email,
    PictureUrl = user.PictureUrl,
    PublicId = user.PublicId,
+
+
+
   };
  }
 }

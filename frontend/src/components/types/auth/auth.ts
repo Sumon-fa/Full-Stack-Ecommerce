@@ -42,6 +42,6 @@ export interface CurrentUser {
   lastName: string;
   email: string;
   pictureUrl: string;
-  id: number;
-  role: string[];
+  id: number | null;
+  roles: string[];
 }

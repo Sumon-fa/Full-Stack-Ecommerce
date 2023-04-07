@@ -62,9 +62,9 @@ namespace backend.Controllers
   }
 
   [HttpGet]
-  public async Task<ICollection<TModel>> GetAllAsync([FromQuery] FilterDTO filter)
+  public async Task<IActionResult> GetAllAsync([FromQuery] FilterDTO filter)
   {
-   return await _service.GetAllAsync(filter);
+   return Ok(await _service.GetAllAsync(filter));
   }
  }
 }

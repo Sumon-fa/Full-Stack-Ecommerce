@@ -7,18 +7,30 @@ import { getAllProducts } from '../../redux/actions/productActions';
 import { SearchProps } from '../types/header/search';
 import SearchModal from '../Ui/SearchModal';
 
-const Search = ({ onToogleSearch, setSearchToogle }: SearchProps) => {
+const Search = ({
+  onToogleSearch,
+  setSearchToogle,
+  pageNumber,
+}: SearchProps) => {
   const [title, setTitle] = useState('');
   const dispatch = useAppDispatch();
-  const navigate = useNavigate();
+
   const searchByTitleHandler = () => {
-    dispatch(getAllProducts(title));
+    const filter = {
+      title,
+      pageNumber: pageNumber + 1,
+    };
+    dispatch(getAllProducts(filter));
     setSearchToogle(false);
     setTitle('');
   };
   const searchByEnterKey = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    const filter = {
+      title,
+      pageNumber: pageNumber + 1,
+    };
     if (e.key === 'Enter') {
-      dispatch(getAllProducts(title));
+      dispatch(getAllProducts(filter));
       setSearchToogle(false);
       setTitle('');
     }

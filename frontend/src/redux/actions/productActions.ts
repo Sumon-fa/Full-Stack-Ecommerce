@@ -1,22 +1,23 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios, { AxiosResponse } from 'axios';
+import { AxiosResponse } from 'axios';
 import axiosInstance from '../../common/axiosInstance';
-import { Product } from '../../components/types/products/product';
+import {
+  GetAllProducts,
+  Product,
+} from '../../components/types/products/product';
 import { CreateProduct } from '../../components/types/products/createProduct';
 import { Token } from '../../components/types/auth/auth';
 
 export const getAllProducts = createAsyncThunk(
   'getAllProducts',
-  async (title: string | undefined, thunkApi) => {
+  async (filter: { title: string; pageNumber: number }, thunkApi) => {
     try {
-      let link = 'https://shopping-backend.azurewebsites.net/api/v1/products';
+      console.log(filter.pageNumber);
+      const pageSize = 8;
+      let link = `/api/v1/products?page=${filter.pageNumber}&pageSize=${pageSize}&searchKeyWord=${filter.title}`;
 
-      if (title) {
-        link = `https://shopping-backend.azurewebsites.net/api/v1/products?searchKeyWord=${title}`;
-      }
-      const response: AxiosResponse<Product[], Product[]> = await axios.get(
-        link
-      );
+      const response: AxiosResponse<GetAllProducts, GetAllProducts> =
+        await axiosInstance.get(link);
 
       return response.data;
     } catch (err: any) {
@@ -29,7 +30,7 @@ export const getProductsByCategoryId = createAsyncThunk(
   'getProductsByCategoryId',
   async (id: string, thunkApi) => {
     try {
-      const response: AxiosResponse<Product[], Product[]> =
+      const response: AxiosResponse<GetAllProducts, GetAllProducts> =
         await axiosInstance.get(`/api/v1/categories/${id}/products`);
       return response.data;
     } catch (err: any) {

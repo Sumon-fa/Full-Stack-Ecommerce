@@ -55,11 +55,6 @@
   text-decoration: none;
   color: #141414;
 }
-.bottom-header__search {
-  position: relative;
-  right: 13em;
-  cursor: pointer;
-}
 
 .bg-image {
   background-size: cover;
@@ -505,6 +500,14 @@
 .feature {
   margin-bottom: 3em;
 }
+.feature .bottom-header__search {
+  position: fixed;
+  text-align: right;
+  right: 8em;
+  cursor: pointer;
+  z-index: 200;
+  top: 48px;
+}
 .feature h1 {
   text-align: center;
   margin-bottom: 2em;
@@ -917,6 +920,8 @@ input[type=number] {
   color: #fff;
   width: 200px;
   padding: 20px;
+  position: fixed;
+  height: 100%;
 }
 
 .sidebar ul {

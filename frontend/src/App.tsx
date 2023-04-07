@@ -19,15 +19,23 @@ import NewProduct from './pages/admin/NewProduct';
 import Dashboard from './pages/admin/Dashboard';
 import AllProducts from './pages/admin/AllProducts';
 import AllUsers from './pages/admin/AllUsers';
+import { userActions } from './redux/slices/userSlice';
 
 const App = () => {
-  const { token } = useAppSelector((state) => state.auth);
+  const { isError, token } = useAppSelector((state) => state.auth);
   const dispatch = useAppDispatch();
+  useEffect(() => {
+    if (isError) {
+      dispatch(userActions.clearError());
+    }
+  }, [isError, alert]);
+
   useEffect(() => {
     if (token) {
       dispatch(getCurrentUser());
     }
-  }, [token]);
+  }, [dispatch, token]);
+
   return (
     <>
       <header>
@@ -39,10 +47,6 @@ const App = () => {
           <Route path="/" element={<Home />} />
 
           <Route path="/products" element={<Products />} />
-          {token && <Route path="/admin/dashboard" element={<Dashboard />} />}
-          {token && (
-            <Route path="/admin/product/create" element={<NewProduct />} />
-          )}
 
           <Route path="/product/:id" element={<ProductDetails />} />
 
@@ -55,17 +59,16 @@ const App = () => {
           <Route
             path="/profile"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute isAdmin={false}>
                 <Profile />
               </ProtectedRoute>
             }
           />
-
           {/*Admin*/}
           <Route
             path="/admin/dashboard"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute isAdmin={true}>
                 <Dashboard />
               </ProtectedRoute>
             }
@@ -74,7 +77,7 @@ const App = () => {
           <Route
             path="/admin/product/create"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute isAdmin={true}>
                 <NewProduct />
               </ProtectedRoute>
             }
@@ -83,7 +86,7 @@ const App = () => {
           <Route
             path="/admin/products"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute isAdmin={true}>
                 <AllProducts />
               </ProtectedRoute>
             }
@@ -91,7 +94,7 @@ const App = () => {
           <Route
             path="/admin/users"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute isAdmin={true}>
                 <AllUsers />
               </ProtectedRoute>
             }

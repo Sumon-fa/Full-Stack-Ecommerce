@@ -3,6 +3,7 @@ import { Product } from './product';
 
 export interface ProductState {
   products: Product[];
+  totalProducts: number;
   isLoading: boolean;
   isError: any;
   product: Product;

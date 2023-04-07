@@ -1,6 +1,6 @@
 export interface ProductsProps {
   heading?: string;
-  products: Product[];
+  products?: Product[];
 }
 export interface Product {
   name: string;
@@ -8,4 +8,9 @@ export interface Product {
   pictureUrl: string;
   description: string;
   id: string;
+}
+
+export interface GetAllProducts {
+  result: Product[];
+  itemLength: number;
 }

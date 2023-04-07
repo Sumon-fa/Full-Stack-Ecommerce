@@ -12,7 +12,14 @@ const initialState: AuthState = {
   isLoading: false,
   isError: null,
   isSuccess: false,
-  currentUser: '',
+  currentUser: {
+    id: null,
+    firstName: '',
+    lastName: '',
+    roles: [],
+    email: '',
+    pictureUrl: '',
+  },
 };
 
 const authSlice = createSlice({
@@ -26,7 +33,7 @@ const authSlice = createSlice({
       state.isError = null;
       state.currentUser = '';
       localStorage.removeItem('token');
-      localStorage.removeItem('auth');
+      localStorage.removeItem('currentUser');
     },
     clearError(state) {
       state.isError = null;
@@ -37,8 +44,11 @@ const authSlice = createSlice({
       if (!action.payload) {
         return state;
       }
+      if ('message' in action.payload) {
+        state.isError = action.payload;
+        return state;
+      }
       state.isSuccess = true;
-
       state.isLoading = false;
       state.isError = null;
       state.token = action.payload.token;
@@ -69,7 +79,6 @@ const authSlice = createSlice({
       getCurrentUser.rejected,
       (state, action: PayloadAction<any>) => {
         state.isError = action.payload;
-        state.currentUser = '';
         state.isLoading = false;
       }
     );

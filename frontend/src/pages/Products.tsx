@@ -10,20 +10,10 @@ const Products = () => {
   const { products, isLoading, isError } = useAppSelector(
     (state) => state.products
   );
-  const dispatch = useAppDispatch();
-
-  useEffect(() => {
-    if (isError) {
-      alert(isError.message);
-      dispatch(productActions.clearError());
-    }
-    dispatch(getAllProducts());
-  }, [isError, dispatch]);
 
   return (
     <>
-      {isLoading && <Loader />}
-      {!isError && !isLoading && <ProductCard products={products} />}
+      <ProductCard products={products} />
     </>
   );
 };

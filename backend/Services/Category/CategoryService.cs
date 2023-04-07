@@ -12,16 +12,23 @@ namespace backend.Services
   {
   }
 
-  public async Task<ICollection<Product>?> GetAllProductsByCategoryIdAsync(Guid id)
+  public async Task<GetAllResultDTO<Product>> GetAllProductsByCategoryIdAsync(Guid id)
   {
-   var category = await _dbContext.Categories
+   var category = await _dbContext.Categories.AsNoTracking()
          .Include(c => c.Products)
          .SingleOrDefaultAsync(c => c.Id == id);
    if (category is null)
    {
     throw ServiceException.NotFound("Category is not found");
    }
-   return category.Products;
+   return new GetAllResultDTO<Product>
+   {
+    Result = category.Products,
+    ItemLength = category.Products.Count()
+
+   };
   }
+
+
  }
 }

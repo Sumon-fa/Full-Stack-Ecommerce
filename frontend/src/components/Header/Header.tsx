@@ -41,17 +41,8 @@ const Header = () => {
           <BottomHeader />
           <DropDownCategory />
         </nav>
-        <div className="bottom-header__search" onClick={toogleSearch}>
-          SEARCH <i className="fa-solid fa-magnifying-glass"></i>
-        </div>
       </div>
       {toogle && !token && <Drawer onToogle={toogleDrawer} />}
-      {searchToogle && (
-        <Search
-          onToogleSearch={toogleSearch}
-          setSearchToogle={setSearchToogle}
-        />
-      )}
     </>
   );
 };

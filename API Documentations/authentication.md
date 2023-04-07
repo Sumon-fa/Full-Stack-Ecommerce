@@ -7,7 +7,7 @@ You can do login by sending an object like the following to /users/signin
 ### Request
 
 ```
-[POST] https://demo.api/api/v1/users/signin
+[POST] https://shopping-backend.azurewebsites.net/api/v1/users/signin
 # Body
 {
     "email":"fakrsumon78@gmail.com",

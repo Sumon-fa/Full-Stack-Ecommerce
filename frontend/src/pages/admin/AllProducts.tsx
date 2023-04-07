@@ -5,15 +5,16 @@ import { getAllProducts } from '../../redux/actions/productActions';
 
 const AllProducts = () => {
   const { products, isError } = useAppSelector((state) => state.products);
+
   const dispatch = useAppDispatch();
 
-  useEffect(() => {
+  /* useEffect(() => {
     if (isError) {
       alert(isError.message);
       dispatch(productActions.clearError());
     }
     dispatch(getAllProducts());
-  }, [isError, dispatch]);
+  }, [isError, dispatch]);*/
 
   return (
     <div className="all-products">

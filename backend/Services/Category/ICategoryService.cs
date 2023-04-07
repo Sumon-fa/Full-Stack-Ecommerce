@@ -5,6 +5,6 @@ namespace backend.Services
 
  public interface ICategoryService : ICrudService<Category, CategoryDTO>
  {
-  Task<ICollection<Product>?> GetAllProductsByCategoryIdAsync(Guid id);
+  Task<GetAllResultDTO<Product>> GetAllProductsByCategoryIdAsync(Guid id);
  }
 }

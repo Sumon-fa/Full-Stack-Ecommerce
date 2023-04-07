@@ -13,7 +13,7 @@ const categorySlice = createSlice({
       if (!action.payload) {
         return state;
       }
-      return action.payload;
+      return action.payload.result;
     });
     build.addCase(getCategories.rejected, (state, action) => {
       return state;

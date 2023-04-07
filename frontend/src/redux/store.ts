@@ -18,7 +18,14 @@ let preUser: AuthState = {
   isLoading: false,
   isError: null,
   isSuccess: false,
-  currentUser: '',
+  currentUser: {
+    id: null,
+    firstName: '',
+    lastName: '',
+    roles: [],
+    email: '',
+    pictureUrl: '',
+  },
 };
 const getCart = localStorage.getItem('cart');
 if (!!getCart) {
