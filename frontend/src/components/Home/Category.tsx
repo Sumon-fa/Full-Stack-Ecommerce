@@ -3,14 +3,14 @@ import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/reduxHook';
 
 const Category = () => {
-  const category = useAppSelector((state) => state.categories);
+  const { categories } = useAppSelector((state) => state.categories);
   const navigate = useNavigate();
   const categoryByProductHandler = (id: string) => {
     navigate(`category/${id}/products`);
   };
   return (
     <section className="category" id="category">
-      {category.map((cate) => (
+      {categories.map((cate) => (
         <div
           key={cate.id}
           onClick={() => categoryByProductHandler(cate.id)}

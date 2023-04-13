@@ -1,12 +1,12 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { AxiosResponse } from 'axios';
-import axiosInstance from '../../common/axiosInstance';
+import axios, { AxiosResponse } from 'axios';
 import {
   GetAllProducts,
   Product,
 } from '../../components/types/products/product';
 import { CreateProduct } from '../../components/types/products/createProduct';
 import { Token } from '../../components/types/auth/auth';
+import axiosInstance from '../../common/axiosInstance';
 
 export const getAllProducts = createAsyncThunk(
   'getAllProducts',
@@ -40,7 +40,7 @@ export const getProductsByCategoryId = createAsyncThunk(
 );
 
 export const createProduct = createAsyncThunk(
-  'createUser',
+  'createProduct',
   async (product: CreateProduct, thunk) => {
     try {
       const token: Token = JSON.parse(localStorage.getItem('token') || '');

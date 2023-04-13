@@ -8,13 +8,17 @@ const AllProducts = () => {
 
   const dispatch = useAppDispatch();
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (isError) {
       alert(isError.message);
       dispatch(productActions.clearError());
     }
-    dispatch(getAllProducts());
-  }, [isError, dispatch]);*/
+    const filter = {
+      title: '',
+      pageNumber: 1,
+    };
+    dispatch(getAllProducts(filter));
+  }, [isError, dispatch]);
 
   return (
     <div className="all-products">

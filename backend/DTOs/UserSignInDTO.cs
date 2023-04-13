@@ -1,12 +1,10 @@
-namespace backend.DTOs
+using System.ComponentModel.DataAnnotations;
+
+namespace backend.DTOs;
+public class UserSignInDTO
 {
- using System.ComponentModel.DataAnnotations;
+    public string Password { get; set; } = null!;
 
- public class UserSignInDTO
- {
-  public string Password { get; set; } = null!;
-
-  [EmailAddress]
-  public string Email { get; set; } = null!;
- }
+    [EmailAddress]
+    public string Email { get; set; } = null!;
 }

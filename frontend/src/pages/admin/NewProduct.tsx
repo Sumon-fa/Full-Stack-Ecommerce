@@ -13,7 +13,7 @@ const NewProduct = () => {
 
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
-  const categories = useAppSelector((state) => state.categories);
+  const { categories } = useAppSelector((state) => state.categories);
   const { isError, isSuccess } = useAppSelector((state) => state.products);
 
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {

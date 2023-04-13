@@ -1,7 +1,7 @@
-namespace backend.Controllers;
-
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Mime;
+
+namespace backend.Controllers;
 
 [ApiController]
 [Produces(MediaTypeNames.Application.Json)]

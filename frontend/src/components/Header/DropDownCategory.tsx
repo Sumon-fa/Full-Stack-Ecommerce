@@ -4,7 +4,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
 import { getCategories } from '../../redux/actions/categoryAction';
 
 const DropDownCategory = () => {
-  const category = useAppSelector((state) => state.categories);
+  const { categories } = useAppSelector((state) => state.categories);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -15,8 +15,8 @@ const DropDownCategory = () => {
     <div className="dropdown">
       <span className="dropcategory">Category</span>
       <div className="dropdown-content">
-        {category &&
-          category.map((cate) => (
+        {categories &&
+          categories.map((cate) => (
             <Link to={`/category/${cate.id}/products`} key={cate.id}>
               {cate.name}
             </Link>

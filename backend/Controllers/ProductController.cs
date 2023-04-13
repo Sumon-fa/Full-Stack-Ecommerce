@@ -6,8 +6,8 @@ namespace backend.Controllers;
 
 public class ProductController : CrudController<Product, ProductDTO>
 {
- public ProductController(ICrudService<Product, ProductDTO> service) : base(service)
- {
+    public ProductController(ICrudService<Product, ProductDTO> service) : base(service)
+    {
 
- }
+    }
 }

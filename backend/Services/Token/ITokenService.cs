@@ -4,5 +4,5 @@ using backend.Models;
 
 public interface ITokenService
 {
- Task<UserSignInResponseDTO> GenerateTokenAsync(User user);
+    Task<UserSignInResponseDTO> GenerateTokenAsync(User user);
 }

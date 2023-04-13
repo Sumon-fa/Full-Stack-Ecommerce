@@ -1,14 +1,10 @@
 import React, { useEffect } from 'react';
 import ProductCard from '../Ui/ProductCard';
 
-import Loader from '../Ui/Loader';
-
 import { useAppSelector } from '../../hooks/reduxHook';
 
 const FeaturedProducts = () => {
-  const { products, isLoading, isError } = useAppSelector(
-    (state) => state.products
-  );
+  const { products } = useAppSelector((state) => state.products);
 
   return (
     <>

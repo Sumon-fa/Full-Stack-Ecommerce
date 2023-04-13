@@ -14,7 +14,6 @@ const Drawer = ({ onToogle }: DrawerProps) => {
   return (
     <Modal onToogle={onToogle}>
       <h5 className="modal__child__heading">
-        {' '}
         {isSignup === 'signup' ? 'SIGN UP' : 'MY ACCOUNT'}{' '}
       </h5>
       {isSignup === 'login' && (

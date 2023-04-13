@@ -3,13 +3,9 @@ import ProductCard from '../components/Ui/ProductCard';
 import { useAppDispatch } from '../hooks/reduxHook';
 import { useAppSelector } from '../hooks/reduxHook';
 import { getAllProducts } from '../redux/actions/productActions';
-import Loader from '../components/Ui/Loader';
-import { productActions } from '../redux/slices/productSlice';
 
 const Products = () => {
-  const { products, isLoading, isError } = useAppSelector(
-    (state) => state.products
-  );
+  const { products } = useAppSelector((state) => state.products);
 
   return (
     <>
