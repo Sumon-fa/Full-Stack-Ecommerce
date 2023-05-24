@@ -2,7 +2,7 @@ name: Automate push/deployment operation
 on: [push]
 env:
   AZURE_WEBAPP_NAME: shopping-backend
-  AZURE_WEBAPP_PACKAGE_PATH: '/home/runner/work/Full-Stack-Ecommerce/Full-Stack-Ecommerce/backend/bin/Debug/net6.0/publish/'
+  AZURE_WEBAPP_PACKAGE_PATH: '/home/runner/work/fs13-FullStack/fs13-FullStack/backend/bin/Debug/net6.0/publish/'
 
 jobs:
   NetProject:

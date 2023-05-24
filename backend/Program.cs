@@ -20,6 +20,7 @@ builder.Services
         options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles;
     });
 
+
 var keyVaultUrl = new Uri(builder.Configuration.GetSection("KeyVaultUrl").Value);
 var azure = new DefaultAzureCredential();
 builder.Configuration.AddAzureKeyVault(keyVaultUrl, azure);
@@ -98,20 +99,21 @@ if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-    using (var scope = app.Services.CreateScope())
+
+    using var scope = app.Services.CreateScope();
+    var dbContext = scope.ServiceProvider.GetService<AppDbContext>();
+    var config = scope.ServiceProvider.GetService<IConfiguration>();
+
+    if (dbContext is not null && config.GetValue<bool>("CreateDbStart", false))
     {
-        var DbContext = scope.ServiceProvider.GetService<AppDbContext>();
-        var config = scope.ServiceProvider.GetService<IConfiguration>();
-        if (DbContext is not null && config.GetValue<bool>("CreateDbStart", false))
-        {
-            DbContext.Database.EnsureDeleted();
-            DbContext.Database.EnsureCreated();
-        }
+        dbContext.Database.EnsureDeleted();
+        dbContext.Database.EnsureCreated();
     }
 }
-
-// Configure the app
-app.UseHttpsRedirection();
+else
+{
+    app.UseHttpsRedirection();
+}
 
 app.UseMiddleware<ErrorHandlerMiddleware>();
 app.UseCors("corsPolicy");

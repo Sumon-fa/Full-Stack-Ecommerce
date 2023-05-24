@@ -7,6 +7,7 @@ import categorySlice from './slices/categorySlice';
 import productDetailsSlice from './slices/productDetailsSlice';
 import productSlice from './slices/productSlice';
 import userSlice from './slices/userSlice';
+import orderSlice from './slices/orderSlice';
 
 let preCart: CartState = {
   cartItems: [],
@@ -64,6 +65,7 @@ export const store = configureStore({
     auth: authSlice.reducer,
     user: userSlice.reducer,
     cart: cartSlice.reducer,
+    order: orderSlice.reducer,
   },
   preloadedState: preloadedState,
 });

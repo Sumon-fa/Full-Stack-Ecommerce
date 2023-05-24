@@ -5,7 +5,7 @@ namespace backend.Common
     public class ServiceException : Exception
     {
         public HttpStatusCode StatusCode { get; set; }
-        public string Message { get; set; }
+        public override string Message { get; } = null!;
 
         public ServiceException(HttpStatusCode statusCode, string message)
         {

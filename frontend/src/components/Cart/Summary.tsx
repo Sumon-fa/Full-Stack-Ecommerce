@@ -1,8 +1,44 @@
-import React from 'react';
-import { useAppSelector } from '../../hooks/reduxHook';
+import React, { useEffect } from 'react';
+import { useAppDispatch, useAppSelector } from '../../hooks/reduxHook';
+import { createOrder } from '../../redux/actions/orderActions';
+import { orderAction } from '../../redux/slices/orderSlice';
 
 const Summary = () => {
-  const { totalPrice, subTotal } = useAppSelector((state) => state.cart);
+  const { totalPrice, subTotal, cartItems } = useAppSelector(
+    (state) => state.cart
+  );
+  const { isError, isLoading, isSuccess } = useAppSelector(
+    (state) => state.order
+  );
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    if (isError) {
+      alert(isError.message);
+      dispatch(orderAction.clearError());
+    }
+
+    if (isSuccess) {
+      alert('Orders created successfully');
+      dispatch(orderAction.clearSuccess());
+    }
+  }, [isError, isSuccess]);
+
+  function orderHandler() {
+    const items = cartItems.map((c) => {
+      return {
+        productId: c.id,
+        updatedPrice: c.updatedPrice,
+        amount: c.amount,
+      };
+    });
+
+    const order = {
+      cartItems: items,
+    };
+
+    dispatch(createOrder(order));
+  }
 
   return (
     <section className="summary-container">
@@ -22,7 +58,9 @@ const Summary = () => {
       </div>
 
       <div className="summary-container__checkout">
-        <button type="button">Check Out</button>
+        <button onClick={orderHandler} type="button">
+          Check Out
+        </button>
       </div>
     </section>
   );

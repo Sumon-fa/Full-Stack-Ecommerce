@@ -24,6 +24,7 @@ public class OrderController : ApiControllerBase
     public async Task<IActionResult> CreateAsync(OrderDTO request)
     {
         var user = await _userManager.GetUserAsync(User);
+       
 
         var order = await _service.CreateAsync(request, user);
         if (order is null)
